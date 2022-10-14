@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% for obj in objects %}
+    <main>
+        <h1>{{obj.realstate_title}}</h1>
+        <h2>{{obj.company}}</h2>
+        <p>{{obj.offer_type}}</p>
+     
+        
+
+            
+    </main>
+    {% endfor %}
+        
+
+{% endblock %}
