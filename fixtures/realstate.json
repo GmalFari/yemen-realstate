@@ -1,0 +1,550 @@
+[
+{
+    "model": "realstate.realstate",
+    "pk": 11,
+    "fields": {
+        "company": 1,
+        "realstate_title": "tooooooooooo",
+        "main_img": "1/shibam.jpg",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "Taiz",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:01:12.157Z",
+        "updated": "2022-10-17"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 12,
+    "fields": {
+        "company": 1,
+        "realstate_title": "department for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:01:33.124Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 13,
+    "fields": {
+        "company": 1,
+        "realstate_title": "department for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:10:03.065Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 14,
+    "fields": {
+        "company": 1,
+        "realstate_title": "department for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:10:21.991Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 15,
+    "fields": {
+        "company": 1,
+        "realstate_title": "department for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:18:01.874Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 16,
+    "fields": {
+        "company": 1,
+        "realstate_title": "department for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:18:22.114Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 17,
+    "fields": {
+        "company": 1,
+        "realstate_title": "building for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:18:59.777Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 18,
+    "fields": {
+        "company": 1,
+        "realstate_title": "building for sale",
+        "main_img": "",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "dj",
+        "realstate_town": "sanaa",
+        "realstate_area": "djdkj",
+        "realstate_price": 14,
+        "is_negotiable": false,
+        "phone": "234",
+        "timestamp": "2022-10-13T19:20:07.653Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 19,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:23:08.015Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 20,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:24:17.517Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 21,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:25:05.164Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 22,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:26:29.146Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 23,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:28:44.927Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 24,
+    "fields": {
+        "company": 1,
+        "realstate_title": "test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:29:44.959Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 25,
+    "fields": {
+        "company": 1,
+        "realstate_title": "image test",
+        "main_img": "1/imag3_46wRfwP.jpeg",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:31:59.884Z",
+        "updated": "2022-10-15"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 26,
+    "fields": {
+        "company": 1,
+        "realstate_title": "2image test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:33:35.153Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 27,
+    "fields": {
+        "company": 1,
+        "realstate_title": "2image test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:34:07.367Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 28,
+    "fields": {
+        "company": 1,
+        "realstate_title": "2image test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:39:01.628Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 29,
+    "fields": {
+        "company": 1,
+        "realstate_title": "2image test",
+        "main_img": "",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:39:39.112Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 30,
+    "fields": {
+        "company": 1,
+        "realstate_title": "2image test",
+        "main_img": "1/ibdaa_ZwSGLgi.jpeg",
+        "offer_type": "for_rent",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "d",
+        "realstate_town": "sanaa",
+        "realstate_area": null,
+        "realstate_price": 1,
+        "is_negotiable": true,
+        "phone": "88",
+        "timestamp": "2022-10-13T19:41:01.552Z",
+        "updated": "2022-10-14"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 42,
+    "fields": {
+        "company": 2,
+        "realstate_title": "new one",
+        "main_img": "2/imag3.jpeg",
+        "offer_type": "for_rent",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "django",
+        "realstate_town": "Dhamar",
+        "realstate_area": "Alasbahy",
+        "realstate_price": 13,
+        "is_negotiable": false,
+        "phone": "+96777627",
+        "timestamp": "2022-10-14T10:54:18.635Z",
+        "updated": "2022-10-16"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 43,
+    "fields": {
+        "company": 1,
+        "realstate_title": "عمارة",
+        "main_img": "1/Al-Nasser-Logo211.png",
+        "offer_type": "for_sale",
+        "realstate_type": "house",
+        "ownership_type": "free",
+        "realstate_description": "مسلح",
+        "realstate_town": "sanaa",
+        "realstate_area": "Alasbahy",
+        "realstate_price": 9999,
+        "is_negotiable": false,
+        "phone": "+96777627",
+        "timestamp": "2022-10-14T18:52:43.552Z",
+        "updated": "2022-10-17"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 44,
+    "fields": {
+        "company": 1,
+        "realstate_title": "real test",
+        "main_img": "1/مباني-صنعاء-القديمة-نموذج-للعمارة-الخضراء.jpg",
+        "offer_type": null,
+        "realstate_type": null,
+        "ownership_type": null,
+        "realstate_description": "real state",
+        "realstate_town": null,
+        "realstate_area": "صنعاء القديمة",
+        "realstate_price": 20000000,
+        "is_negotiable": null,
+        "phone": "776278868",
+        "timestamp": "2022-10-16T18:34:12.835Z",
+        "updated": "2022-10-16"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 45,
+    "fields": {
+        "company": 1,
+        "realstate_title": "testing",
+        "main_img": "1/20210807_130104.jpg",
+        "offer_type": "for_sale",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "free",
+        "realstate_town": "sanaa",
+        "realstate_area": "Alasbahy",
+        "realstate_price": 14,
+        "is_negotiable": true,
+        "phone": "3253643223",
+        "timestamp": "2022-10-16T22:15:52.865Z",
+        "updated": "2022-10-16"
+    }
+},
+{
+    "model": "realstate.realstate",
+    "pk": 46,
+    "fields": {
+        "company": 1,
+        "realstate_title": "testing",
+        "main_img": "1/20210807_130104_Rt4JbHE.jpg",
+        "offer_type": "for_sale",
+        "realstate_type": "dept",
+        "ownership_type": "free",
+        "realstate_description": "free",
+        "realstate_town": "sanaa",
+        "realstate_area": "Alasbahy",
+        "realstate_price": 14,
+        "is_negotiable": true,
+        "phone": "3253643223",
+        "timestamp": "2022-10-16T22:17:19.618Z",
+        "updated": "2022-10-17"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 1,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_7995.JPG"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 2,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_7996.JPG"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 3,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_7997.JPG"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 4,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_7999.JPG"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 5,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_8000.JPG"
+    }
+},
+{
+    "model": "realstate.realstateimage",
+    "pk": 6,
+    "fields": {
+        "realstate": 46,
+        "image": "1/46/DSC_8001.JPG"
+    }
+}
+]

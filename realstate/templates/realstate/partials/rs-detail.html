@@ -1,0 +1,9 @@
+<main>
+    <img src="{{object.imageURL}}" alt="">
+    <h1><a href="{{object.get_update_url }}">{{object.realstate_title}}</a> </h1>
+    <h2>{{object.company}}</h2>
+    <p>{{object.offer_type}}</p> 
+    {% for img in object.get_child_images  %}
+        <img src="{{img.image.url}}" alt="">
+    {% endfor %}
+</main>

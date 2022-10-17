@@ -1,15 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main>
-        <h1>{{object.realstate_title}}</h1>
-        <h2>{{object.company}}</h2>
-        <p>{{object.offer_type}}</p> 
-        {% for img in obj_imgs  %}
-            <img src="{{img.image.url}}" alt="">
-        {% endfor %}
-            
-    </main>
+    <div hx-get="{{ hx_url}}" hx-trigger="revealed">
+        <div class="htmx-indicator">Loading........</div>
+    </div>
         
 {% endblock %}
     

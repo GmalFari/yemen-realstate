@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% for obj in list_rs %}
+        <p><a href="{{obj.get_update_url}}">update</a></p>
+        <a href="{{obj.get_absolute_url}}"> {{obj.realstate_title}}</a>
+        <p>{{obj}}  </p>
+        
+        {% for ing in obj.realstateimage_set.all %}
+            <img src="{{ing.image.url}}" alt="">
+            
+        {% endfor %}
+            
+    {% endfor %}
+        
+{% endblock content %}
+    

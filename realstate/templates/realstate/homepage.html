@@ -1,18 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'realstate/css/homepage.css' %}">
+{% endblock style %}
     
-    {% for obj in objects %}
+{% block content %}
+
     <main>
-        <h1>{{obj.realstate_title}}</h1>
-        <h2>{{obj.company}}</h2>
+    <h1> الدليل العقاري الأول في اليمن </h1>
+    <section >
+        <div class="form-group">
+            <div class="card">
+                <form method="get">
+                    <p><b>realstate title:</b>{{myfilter.form.realstate_title}}</p>
+                    <p><b>offer type:</b>{{myfilter.form.offer_type}}</p>
+                    <p><b>offer type</b>{{myfilter.form.realstate_type}}</p>
+                    <p><b>realstate town:</b>{{myfilter.form.realstate_town}}</p>
+                    <p><b>offer type:</b>{{myfilter.form.ownership_type}}</p>
+                    <p><b>realstate area:</b>{{myfilter.form.realstate_area}}</p>
+
+                    
+                    
+                    <button class="btn" type="submit">Search</button>
+                </form>
+            </div>
+        </div> 
+        <div class="all-cards">
+        {% for obj in objects %}
+        <a href="{{obj.get_absolute_url}}">
+            <h1>{{obj.realstate_title}}</h1>
+        </a>
+        <h2>{{obj.realstate_town}}</h2>
         <p>{{obj.offer_type}}</p>
-     
-        
-
-            
-    </main>
+        <p>{{obj.realstate_area}}</p>
+        <p>{{obj.realstate_type}}</p>
+      <img src="{{obj.imageURL}}" alt="">
+ 
+    
     {% endfor %}
-        
-
+    </div>
+    </section>
+    
+</main>
 {% endblock %}
