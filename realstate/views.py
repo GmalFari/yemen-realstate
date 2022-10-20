@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
 from django.urls import reverse
 from django.contrib import messages
-from django.shortcuts import HttpResponse, HttpResponseRedirect, render
+from django.http import HttpResponse,Http404
+from django.shortcuts import HttpResponseRedirect, render
 from .forms import ImageRealstateForm, RealstateForm
 from .models import Realstate, RealstateImage
 from .filter import Rsfilter
@@ -18,7 +19,7 @@ def list_view(request):
         "list_rs":list_rs,
     }
     return render(request,"realstate/list.html",context=context)
-
+ 
 @login_required
 def realstate_create_view(request):
     form = RealstateForm(request.POST or None,request.FILES or None)
@@ -41,39 +42,59 @@ def realstate_create_view(request):
     }
     
     return render(request,"realstate/create-rs.html",context=context)
+
 @login_required
 def rs_update_view(request,id=None):
     try:
-        obj = Realstate.objects.get(id=id)
+        obj = Realstate.objects.get(id=id,company=request.user)
     except:
         obj = None
     if obj is None:
         return HttpResponse("not found")
-    
-    form = RealstateForm(request.POST or None, instance=obj)
-    RealstateImageFormset = modelformset_factory(RealstateImage,form=ImageRealstateForm,extra=0)
-    rs_imgs_qs = obj.realstateimage_set.all() #[]
-    formset = RealstateImageFormset(request.POST or None , queryset=rs_imgs_qs)
+    form = RealstateForm(request.POST or None,request.FILES or None, instance=obj)
+    new_image_url = reverse("realstate:hx-images-new",kwargs={"parent_id":obj.id})
     context = {
         "form":form,
-        "formset":formset,
-        "obj":obj,
+        "object":obj,
+        "new_image_url":new_image_url,
     }
-    if all([form.is_valid(),formset.is_valid()]):
-        parent = form.save(commit=False)
-        parent.save()
-        for f in formset:
-            child = f.save(commit=False)
-            if child.realstate is None:
-                child.realstate = parent
-            child.save()
-            print("updated data.")
-            context['message'] = "updated data."
+    if form.is_valid():
+        form.save()
+        context['message'] = "updated data."
     if request.htmx:
-        return render(request,"realstate/partials/forms.html")     
+        return render(request,"realstate/partials/forms.html",context=context)     
     return render(request,"realstate/rs-update.html",context=context)
-
-
+@login_required
+def realstate_imgs_hx_detail_view(request,parent_id=None,id=None):
+    if not request.htmx:
+        return HttpResponse("Not found")
+    try:
+        parent_obj = Realstate.objects.get(id=parent_id)
+    except:
+        parent_obj = None
+    if parent_obj is  None:
+        return HttpResponse(" parent Not found")
+    instance = None
+    if id is not None:
+        try:
+            instance = RealstateImage.objects.get(realstate=parent_obj,id=id)
+        except:
+            instance = None
+    form = ImageRealstateForm(request.POST or None, request.FILES or None , instance=instance)
+    url = instance.get_hx_edit_url() if instance else reverse("realstate:hx-images-new",kwargs={"parent_id":parent_obj.id})
+    context = {
+        "url":url,
+        "form":form,
+        "object":instance,
+    }
+    files = request.FILES.getlist('image')
+    if form.is_valid():
+        for file in files:
+            new_obj = RealstateImage.objects.create(realstate=parent_obj,image=file)
+        context['object'] = new_obj  
+        messages.success(request,"New realstate added")    
+        return render(request,"realstate/partials/images-inline.html",context=context)
+    return render(request,"realstate/partials/images-form.html",context=context)
 # global scope
 def homepage_view(request):
     objects = Realstate.objects.all()
@@ -93,6 +114,8 @@ def realstate_detail_view(request,id=None):
     return render(request,"realstate/rs-detail.html",context=context)
 
 def realstate_hx_detail_view(request,id=None):
+    if not request.htmx:
+        return HttpResponse("Not found")
     try:
         obj = Realstate.objects.get(id=id)
     except:

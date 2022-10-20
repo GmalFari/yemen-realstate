@@ -14,21 +14,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
  
-    <script src="https://unpkg.com/htmx.org@1.8.0" integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc" crossorigin="anonymous"></script>
-
+    <script src="https://unpkg.com/htmx.org@1.8.0" integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc" crossorigin="anonymous">
+      
+    </script>
+    <style>
+    .htmx-indicator {
+        display:none;
+    }
+    .htmx-request .htmx-indicator {
+        display:inline;
+    }
+    .htmx-inverted-indicator{
+        display:inline;
+    }
+    .htmx-request .htmx-inverted-indicator{
+        display:none;
+    }
+    img {
+      width:200px;
+      height: 200px;
+      }
+    </style>
 
     {% block style %}
       
     {% endblock style %}
-      
-       <!-- Font Awesome -->
      </head>
-    <style>
-        img {
-            width:200px;
-            height: 200px;
-        }
-    </style>
 </head>
 <body >
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -106,12 +117,13 @@
     {% block script %}
       
     {% endblock script %}
+
+    <script src="{% static 'realstate/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'realstate/js/all.min.js'%}"></script>
     <script>
       document.body.addEventListener('htmx:configRequest', (event) => {
           event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
         })
      </script>
-    <script src="{% static 'realstate/js/bootstrap.bundle.min.js'%}"></script>
-    <script src="{% static 'realstate/js/all.min.js'%}"></script>
 </body>
 </html>

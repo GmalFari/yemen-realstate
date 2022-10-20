@@ -1,0 +1,4 @@
+<div id="img-{{object.id}}">
+    {{object.image.url}}
+    <button hx-trigger="click" hx-get="{{object.get_hx_edit_url }}" hx-target="#img-{{object.id}}">Edit</button>
+</div>

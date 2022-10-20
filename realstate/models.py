@@ -1,4 +1,5 @@
 from django.urls import reverse
+from django.db.models import Q
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -20,6 +21,21 @@ alternatives
 additional info if was dept or building or land 
 
 """
+class RealstateQuerySet(models.QuerySet):
+    def search(self,query=None):
+        if query is None or query=="":
+            return self.none()
+        lookups =( Q(name__icontains=query) | 
+        Q(description__icontains=query) |
+         Q(directions__icontains=query)
+        )
+        return self.filter(lookups)
+
+class RealstateManager(models.Manager):
+    def get_queryset(self):
+        return RealstateQuerySet(self.model,using=self._db)
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
 class Realstate(models.Model):
     offer_choices = [
@@ -56,6 +72,7 @@ class Realstate(models.Model):
     phone = models.CharField(max_length=50,null=True,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
+    objects = RealstateManager() # for search 
     def get_absolute_url(self):
         return reverse("realstate:rs-detail",kwargs={"id":self.id})
     def get_hx_url(self):
@@ -80,6 +97,15 @@ class RealstateImage(models.Model):
     realstate= models.ForeignKey(Realstate,on_delete=models.CASCADE)
     image = models.ImageField(upload_to=img_file_name)
     
+    def get_absolute_url(self):
+        return self.realstate.get_absolute_url()
+    def get_hx_edit_url(self):
+        kwargs = {
+            "parent_id":self.realstate.id,
+            "id":self.id
+            }
+        return reverse("realstate:hx-images-update",kwargs=kwargs)
+
     class Meta:
         verbose_name = _("Image")
         verbose_name_plural = _("Images")

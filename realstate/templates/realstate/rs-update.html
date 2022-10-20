@@ -3,7 +3,16 @@
 {% block content %}
     
    {% include 'realstate/partials/forms.html' %} 
-    <div>
+   <h3>Images</h3>
+   {% for img in object.get_child_images %}
+       {% include 'realstate/partials/images-inline.html' with object=img %}
+   {% endfor %}
+     {% if new_image_url %}
+        <div id="img-create">
+        </div>
+        <button hx-get="{{new_image_url}}" hx-trigger="click" hx-target="#img-create">add image</button>
+        {% endif %}
+   <div>
 </div>
 
     
