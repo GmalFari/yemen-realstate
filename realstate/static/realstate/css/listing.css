@@ -189,12 +189,11 @@ padding-top: 102px;
 }
 
 
-.list .card {
-  min-height: 700px;
-  max-height: 700px;
-}
+
 .list .img {
   height: 300px !important;
+  min-height: 300px;
+  max-height: 300px;
   
 }
 

@@ -355,8 +355,8 @@ color: var(--yellow-color);
     }
   }
 .about-property .img-property {
-  height: 320px !important;
-  max-height: 320px !important;
+  height: 250px !important;
+  max-height: 250px !important;
 }
 
 .about-property .img-property img {
