@@ -1,0 +1,71 @@
+:root {
+  --main-color:#187875;
+  --dark-color: rgb(22, 50, 59);;
+  --green-color: #33d1cc;
+  --red-color: #ff3150;
+  --yellow-color: #ffc400;
+  --section-color: #fff;
+}
+/* Start Navbar */
+
+@media (max-width:991px) {
+ .navbar .navbar-collapse {
+   background-color:#fff
+ }
+ 
+}
+.navbar .brand-img {
+  margin-right: 10px;
+  width: 160px !important;
+  height: 52px !important;
+}
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-brand {
+  color:var(--dark-color) !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  font-size: 1.2rem;
+}
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover {
+ color: var(--main-color);
+}
+
+.navbar .navbar-toggler {
+ color:var(--dark-color);
+ font-size: 25px;
+ border-color: var(--dark-color);
+}
+.navbar .navbar-toggler:focus {
+ box-shadow: none;
+}
+.navbar .navbar-toggler[aria-expanded="true"] {
+ border-color: var(--main-color);
+}
+
+.navbar .navbar-toggler:active {
+  border-color: var(--main-color);
+}
+.navbar .user {
+ background-color:rgb(249,249,249);
+ border-radius: 10px;
+ cursor: pointer;
+}
+
+@media (min-width:992px) {
+ .navbar .user {
+   display: none;
+ }
+}
+.navbar .user > * {
+ padding:10px;
+
+}
+
+.navbar .user svg {
+ color:var(--dark-color)
+}
+
+/* End Navbar */

@@ -2,15 +2,311 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'realstate/css/homepage.css' %}">
+<link rel="stylesheet" href="{% static 'realstate/css/homepage.css' %}" />
+
 {% endblock style %}
     
 {% block content %}
-
     <main>
-    <h1> الدليل العقاري الأول في اليمن </h1>
-    <section >
-        <div class="form-group">
+      <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'realstate/imgs/best.jpg' %}" class="d-block w-100 img-fluid" alt="image one ">
+            <div class="carousel-caption">
+              <h1 class="fs-2 fw-bold">أبحث الأن عن بيت الأحلام</h1>
+              <p> نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد</p>
+              <div class="card">
+                <!-- Actual search box -->
+                <div class="card-body">
+                  <div class="rent-sale">
+                    <button class="sale">للبيع</button>
+                    <button class="rent">للإيجار</button>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <span class="filter-property">المنطقة</span>
+                      <select class="mt-2 bg-light" name="" id="">
+                        <option value="">المنطقة الوسطى </option>
+                        <option value="">الضاحية</option>
+                        <option value="">منطقة تجارية</option>
+                        <option value="">منطقة سكنية</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-3">
+                      <span class="filter-property">المدينة</span>
+                      <select class="mt-2 bg-light" name="" id="">
+                        <option value="">صنعاء</option>
+                        <option value="">ذمار</option>
+                        <option value="">عدن</option>
+                        <option value="">حضرموت</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-3">
+                      <span class="filter-property">البحث بحسب</span>
+                      <select class="mt-2 bg-light" name="" id="">
+                        <option value="">الكل</option>
+                        <option value="">بيوت</option>
+                        <option value="">شقق</option>
+                        <option value="">فلل</option>
+                      </select>
+                    </div>
+                    <div class=" col-lg-3">
+                      <button class="search-btn btn">Search</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <section class="property-choices py-3">
+      <div class="container  py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-12 mb-5 card-container ">
+            <div class="card">
+              <a href="{% url 'realstate:rs-create'%}" class="img">
+                <img src="{% static 'realstate/imgs/Buy_a_home.png' %}" alt="" class="img-fluid">
+              </a>
+              <div class="about px-4 py-3">
+                <h3>أضف عقارك مجاناً</h3>
+              <p class="text-black">بيت بالمنطقة الغربية نوفر لك جميع ماتحتاجة عن العقارات في مكان واح نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد
+              </p>
+              <button class=" main-btn1 btn browse"> تصفح الأن</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-5 card-container ">
+            <div class="card">
+              <a href="{% url 'realstate:list-view' %}" class="img">
+                <img src="{% static 'realstate/imgs/Sell_a_home.webp' %}" alt="" class="img-fluid">
+              </a>
+              <div class="about px-4 py-3">
+                <h3>عقارات للبيع</h3>
+              <p class="text-black">بيت بالمنطقة الغربية نوفر لك جميع ماتحتاجة عن العقارات في مكان واح نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد
+              </p>
+              <button class="main-btn1 btn "> تصفح الأن</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-5 card-container ">
+            <div class="card">
+              <a href="{% url 'realstate:list-view' %}" class="img">
+                <img src="{% static 'realstate/imgs/Rent_a_home.webp' %} " alt="" class="img-fluid">
+              </a>
+              <div class="about px-4 py-3">
+                <h3>عقارات للإيجار</h3>
+              <p class="text-black">بيت بالمنطقة الغربية نوفر لك جميع ماتحتاجة عن العقارات في مكان واح نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد
+              </p>
+              <button class="main-btn1 btn browse"> تصفح الأن</button>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <div class="w-100 text-center">
+          <button class="main-btn1  btn check-all"> تصفح الكل</button>
+        </div>
+      </div>
+    </section>
+    <section class="all-realstate container pt-5 pb-5">
+      <div class="container-fluid">
+        <div class="main-title text-center mt-5 mb-5 ">
+          <h2>  أخر بحث</h2>
+        </div>
+        <div class="row">
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">شقق صنعاء</a></h5>
+          </div>
+         
+          
+        </div>
+        <div class="w-100 text-center">
+          <button class="main-btn1 btn check-all"> تصفح الكل</button>
+        </div>
+      </div>
+    </section>
+    <section class="all-realstate container pt-5 pb-5">
+      <div class="container-fluid">
+        <div class="main-title text-center mt-5 mb-5 ">
+          <h2>العقارات الأكثر بحثاً</h2>
+        </div>
+          <div class="choices d-flex justify-content-center">
+            <div><p>للبيع</p> </div>
+            <div><p>للإيجار</p></div>
+          </div>
+        <div class="row">
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">شقق صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">بيوت صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">محلات صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">هناجر صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">مدن سكنية صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+          <div class="choice-box mt-5 col-md-6 col-lg-4">
+            <h5 class="choices-title"><a href="#">أراضي صنعاء</a></h5>
+            <div class="content-choice">
+              <p>صنعاء القديمة </p>
+              <p> السنينة  </p>
+              <p>الأصبحي </p>
+              <p>الستين الغربي </p>
+              <p>سعوان </p>
+              <p>الحصبة </p>
+              <p>التحرير </p>
+              <p>المطار </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-100 text-center">
+          <button class="main-btn1 btn check-all"> تصفح الكل</button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer  mt-5 pt-5 pb-5 text-white-50 text-center text-md-start">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="info mb-5">
+              <img src="imgs/logo1.png" alt="" style="width:80px;height:70px">
+              <p class="mb-5">
+                Pellentesque in ipsum id orci porta dapibus. Vivamus magna justo, lacinia eget consectetur sed,
+                convallis at tellus.
+              </p>
+              <div class="copyright">
+                Created By <span>JamalFarea</span>
+                <div>&copy; 2022- <span>RealState</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2">
+            <div class="links">
+              <h5 class="text-light">Links</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>Home</li>
+                <li>Our Services</li>
+                <li>Portfolio</li>
+                <li>Testimonials</li>
+                <li>Support</li>
+                <li>Terms and Condition</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2">
+            <div class="links">
+              <h5 class="text-light">About Us</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>Sign In</li>
+                <li>Register</li>
+                <li>About Us</li>
+                <li>Blog</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="contact">
+              <h5 class="text-light">Contact Us</h5>
+              <p class="lh-lg mt-3 mb-5">Get in touch with us via mail phone.We are waiting for your call or message</p>
+              <a class="btn rounded-pill main-btn w-100" href="#">graphberry@gmail.com</a>
+              <ul class="d-flex mt-5 list-unstyled gap-3">
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-facebook fa-lg facebook rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-twitter fa-lg twitter rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-linkedin fa-lg linkedin rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-youtube fa-lg youtube rounded-circle p-2"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+        {% comment %} <div class="form-group">
             <div class="card">
                 <form method="get">
                     <p><b>realstate title:</b>{{myfilter.form.realstate_title}}</p>
@@ -19,28 +315,10 @@
                     <p><b>realstate town:</b>{{myfilter.form.realstate_town}}</p>
                     <p><b>offer type:</b>{{myfilter.form.ownership_type}}</p>
                     <p><b>realstate area:</b>{{myfilter.form.realstate_area}}</p>
-
-                    
-                    
                     <button class="btn" type="submit">Search</button>
                 </form>
             </div>
-        </div> 
-        <div class="all-cards">
-        {% for obj in objects %}
-        <a href="{{obj.get_absolute_url}}">
-            <h1>{{obj.realstate_title}}</h1>
-        </a>
-        <h2>{{obj.realstate_town}}</h2>
-        <p>{{obj.offer_type}}</p>
-        <p>{{obj.realstate_area}}</p>
-        <p>{{obj.realstate_type}}</p>
-      <img src="{{obj.imageURL}}" alt="">
- 
-    
-    {% endfor %}
-    </div>
-    </section>
+        </div>  {% endcomment %}
     
 </main>
 {% endblock %}

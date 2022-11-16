@@ -2,19 +2,22 @@
 
 {% block content %}
     <main class="m-4">
-        <form action="." id="post_form" method="post"  enctype="multipart/form-data" hx-swap="outerHTML">
-            {% csrf_token %}  
-            {% for hidden in form.hidden_fields %}
-                {{hidden}}            
-            {% endfor %} 
-            {{form.as_p}}
-            {{imgsform.management_form}}
-            {% for f in imgsform %}
-                {{f}}
-            {% endfor %}     
-           <input type="submit" name="submit" value="submit">
-        </form>
-        <div>
-    </div>
+
+        <div class="container">
+            <h1 class="" > أضف عقارك الأن </h1>
+            <form action="." id="post_form" method="post"  enctype="multipart/form-data" hx-swap="outerHTML">
+                {% csrf_token %}  
+                {% for hidden in form.hidden_fields %}
+                    {{hidden}}            
+                {% endfor %} 
+                {{form.as_p}}
+                {{imgsform.management_form}}
+                {% for f in imgsform %}
+                    {{f}}
+                {% endfor %}     
+               <input type="submit" name="submit" value="submit">
+            </form>
+        </div>
+
     </main>
 {% endblock %}

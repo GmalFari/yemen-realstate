@@ -1,9 +1,428 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'realstate/css/property.css' %}" />
 
+{% endblock style %}
+    
 {% block content %}
-    <div hx-get="{{ hx_url}}" hx-trigger="revealed">
-        <div class="htmx-indicator">Loading........</div>
+<main>
+    <div class="bell container mt-5">
+       <div class="container ">
+        <div class="bell-text">
+            <h2>هل ترغب بتلقي إشعارات من هذا الإعلان</h2>
+            <p class="text-black-50">كن أول من يعلم</p>
+          </div>
+          <div class="notifications">
+            <button class="btn">أرغب بتلقي الإشعارات </button>
+            <button class="btn notification ">
+            <i class="fa-regular fa-bell"></i>
+          </button>
+          </div>
+       </div>
     </div>
-        
+    <section class="about-property container py-3">
+        <div class="container  py-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12 mb-5 card-container">
+              <div class="">
+                <div class="img">
+                  <ul class="btn-group media">
+                    <li class="nav-item me-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                        <label class="btn btn-outline" for="btn-check-outlined">فيديو</label>
+                    </li>
+                    <li class="nav-item me-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                        <label class="btn btn-outline" for="btn-check-outlined">صور</label>
+                    </li>
+                    <li class="nav-item me-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                        <label class="btn btn-outline" for="btn-check-outlined">الخريطة</label>
+                    </li>
+                  </ul>
+                  <div class="img-property position-relative">
+                  <div class="truecheck position-absolute">
+                    <i class="fa-solid fa-check"></i>                         
+                    <small>TrueCheck</small>
+                  </div>
+                    <img id="main-img1"  src="{% static 'realstate/imgs/pro18.jpg' %}" alt="" class=" main-img-property w-100">
+                    <div class="map position-absolute">
+                      <i class="fa-solid fa-location-dot"></i>
+                       <small>الخريطة</small>
+                    </div>
+                  </div>
+                  <div class=" scroll-imgs">
+                    <div id="widthControlled" class="gallery-row small ">
+                      <?xml version="1.0" encoding="utf-8"?>
+                      <div class="map-img ">
+                        <img src="imgs/map-flat.jpg" alt="">
+                      </div>
+                      
+                    <div id="scrollerimgs" class="gallery-row-scroll mx-auto">
+                        {% for ing in object.get_child_images%}
+                        <a href="#" class="btn  btn-labeled">
+                        <img src="{{ing.image.url}}" alt="">
+                        </a>
+                    {% endfor %}
+                      
+                
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="img-content container px-3 py-2">
+                  <div class="p-main-icons d-flex justify-content-between flex-nowrap">
+                    <h2 class="mt-3 ">$3500+</h2>
+                    <div class="share mt-3 d-flex justify-content-between flex-nowrap">
+                        <button class="">
+                          <i style="color:#187875" class="fa-solid fa-share"></i>
+                        </button>
+                        <button>
+                          <i style="color:#187875" class="fa-regular fa-heart"></i>
+                        </>
+                        <button>
+                          <i style="color:#187875" class="fa-solid fa-download"></i>
+                        </button>
+                      </div>
+                </div>
+                <p class="address fw-bold mb-0">صنعاء ,باب اليمن ,شعوب</p>
+                </p>
+                  <div class="features d-flex justify-content-right">
+                    <div class="feature mx-3">
+                    <i style="color:#187875" class="fa-solid fa-bed"></i>
+                    <span>2 غرفة نوم</span>
+                    </div>
+                    <div class="feature mx-3">
+                        <i style="color:#187875" class="fa-solid fa-bath"></i>
+                        <span >2 حمام </span>
+                        </div>
+                        <div class="feature mx-3">
+                            <i style="color:#187875" class="fa-solid fa-house"></i>
+                            <span> مجلس </span>
+                        </div>
+                    </div>
+                    <div class="descripiton">
+                      <h3 class="fs-5 mt-3 mb-2">شقة في الغدير المرحلة الثانية الغدیر 1 غرف 545270 درهم - 5544641</h3>
+                      <p class=" text-black-50">بيت كبير 6 شقق 4 منهم تشطيب سوبر سوووبر لوكس رخام وجرانيت وسراميك في الوجهات وبورسلين ارضيات و اتنين منهم 
+                  علي الطوبة وكراج للسيارات ومي وكهربا وملكية خاصة ومنافع خاصة ومدخلين بوابات حديد مركز بيلا محافظة
+                   كفر الشيخ</p>
+                    </div>
+                </div>
+              </div>
+              <div class="property-info mt-4 mb-4 container ">
+                <h3>معلومات عن العقار</h3>
+                <ul class=" ">
+                  <li>
+                    <span>نوع العقار</span>
+                    <span>شقة</span>
+                  </li>
+                  <li>
+                    <span>نوع العرض</span>
+                    <span>للبيع</span>
+                  </li>
+                  <li>
+                    <span>الرقم المرجعي</span>
+                    <span>الدليل العقاري 102</span>
+                  </li>
+                  <li>
+                    <span>حالة البناء</span>
+                    <span>جاهز</span>
+                  </li>
+                  <li>
+                    <span>التأثيث</span>
+                    <span>غير المفروشة</span>
+                  </li>
+                  <li>
+                    <span>تاريخTruecheck</span>
+                    <span>2/12/2022</span>
+                  </li>
+                  <li>
+                    <span>تاريخTruecheck</span>
+                    <span>2/12/2022</span>
+                  </li>
+                  <li>
+                    <span>تاريخ الإضافة</span>
+                    <span>12 سبتمبر 2022</span>
+                  </li>
+                  
+                </ul>
+              </div>
+
+              <div class="checked-property-info property-info container  mt-4 mb-4 ">
+                <h3>بيانات موثقة عن العقار 
+                    <img src="imgs/success-green-check-mark-icon.svg" alt="">
+                </h3>
+                <ul class=" ">
+                  <li>
+                    <span>الملكية </span>
+                    <span>حر</span>
+                  </li>
+                  <li>
+                    <span>المساحة المبنية</span>
+                    <span> 3,765 قدم مربع </span>
+                  </li>
+                  <li>
+                    <span>مساحة الأرض</span>
+                    <span> 8,880 قدم مربع </span>
+                  </li>
+                  <li>
+                </ul>
+              </div>
+                <div class="features container mt-4 mb-4">
+                <h3>المزايا والخدمات</h3>
+                  <div class="boxes">
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-bed"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-bath"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-house"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-car"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-heart"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-car"></i>
+                            <span>موقف سيارات </span>
+                        </div>
+                        <div class="box">
+                          <i style="color:#187875" class="fa-solid fa-user"></i>
+                            <span>موقف سيارات </span>
+                        </div>   
+                  </div>
+              </div>
+              <div class="near-places mt-5 mb-5">
+                <div class="near-title d-flex justify-content-between">
+                  <h3>المواقع والأماكن القريبة</h3>
+                  <span class="btn">
+                    عرض على الخريطة
+                  </span>
+                </div>
+                  <div class="boxes mt-3">
+                    <div class="box-places">
+
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <div class="contact col-lg-4  mb-5 card-container">
+              <div class=" p-3 agent ">
+                  <div class="card agent-info p-4">
+                    <div class="user  mb-5">
+                      <div class="user-img  d-flex justify-content-between">
+                        <a href="#">
+                          <img class="mb-3  " src="imgs/logo.png" alt="">
+                        </a>
+                        <div class="logo flex-grow-1 ">
+                            <p class=" text-black-50">تمت أضافتة بواسطة<p>
+                            <p class="text-black ">وكيل العقار: aldar property pjsc</p>
+                            <div class="stars w-100 text-black-50">
+                                <span>
+                                <i style="color:#187875" class="fa-solid fa-star text-black-50"></i>
+                                  2 تقييمات                                    </span>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="star nav-item me-2 mt-4 text-center">
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                          <label class="btn btn-outline" for="btn-check-outlined">
+                              <i style="color:#187875" class="fa-solid fa-pen text-black-50"></i>
+                              أكتب تقييم
+                          </label>
+                      </div>
+                      <div class="show text-center  mt-5 mb-5">
+                          <a  href="#"> عرض جميع العقارات</a>
+                    </div>
+                  </div>
+                    <div class="input-contact">
+                      <form class="my-5 ">
+                          <div class="form-floating  mb-3 p ">
+                          <input type="text" class="form-control fs-6 fw-light " id="floatingInput" placeholder="name@example.com">
+                          <label style="left:80% !important;font-size:10px !important;" class="fs-6 " for="floatingInput">رقم التلفون</label>
+                        </div>
+                        <div class="form-floating">
+                          <textarea class="form-control fs-6 fw-light" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 70px"></textarea>
+                          <label style="left:80% !important;font-size:10px !important;" class="fs-6 text-black-50 " for="floatingTextarea2">محتوى الرسالة</label>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="btn-group contact-icons">
+                      <button type="button" class="btn">
+                        واتساب
+                        <i class="fa-brands fa-whatsapp"></i>
+                      </button>
+                      <button type="button" class="btn ">
+                        أتصل
+                        <i class="fa-solid fa-phone"></i>
+                      </button>
+                      <button type="button" class="btn ">
+                          بريد الكتروني
+                        <i class="fa-regular fa-envelope"></i>
+                      </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container scroll-imgs">
+        <div id="widthControlled" class="gallery-row small ">
+          <?xml version="1.0" encoding="utf-8"?>
+        <div id="leftimgArrow" class="mt-4" >
+        <span  xlink:href="#scrollArrow" ><i  class=" fa-solid fa-chevron-left"></i></span>
+      </div>
+          <div id="scrollerimgs" class="gallery-row-scroll mt-4 mx-auto">
+            <a href="#" class="btn  btn-labeled">
+              <img src="imgs/img1.jpg" alt="" >
+              <p>عقارات عدن</p>
+            </a>
+  
+            <a href="#" class="btn  btn-labeled">
+              <img src="imgs/imag7.jpg" alt="" >
+              <p>عقارات صنعاء</p>
+            </a>
+            <a href="#" class="btn  btn-labeled">
+              <img src="imgs/image2.webp" alt="" >
+              <p>عقارات تعز</p>
+            </a>
+            <a href="#" class="btn  btn-labeled">
+              <img src="imgs/img6.jpg" alt="" >
+              <p>عقارات لحج</p>
+            </a>
+            <a href="#" class="btn  btn-labeled">
+              <img src="imgs/img5.jpg" alt="" >
+              <p>عقارات حضرموت</p>
+              <a href="#" class="btn  btn-labeled">
+                <img src="imgs/img4.jpg" alt="" >
+                <p>عقارات ذمار</p>
+              </a>
+              <a href="#" class="btn  btn-labeled">
+                <img src="imgs/img1.webp" alt="" >
+                <p>عقارات الحديدة</p>
+              </a>
+              <a href="#" class="btn  btn-labeled">
+                <img src="imgs/shibam.jpg" alt="" >
+                <p>عقارات شبوه</p>
+              </a>
+              <a href="#" class="btn  btn-labeled">
+                <img src="imgs/main1.jpg" alt="" >
+                <p>عقارات مأرب</p>
+              </a>
+            </div>
+            <div id="rightimgArrow" class="mt-4" >
+              <span  xlink:href="#scrollArrow" >
+                <i class=" fa-solid fa-chevron-right "></i>
+              </span>
+            </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="choice-box mt-5 col-md-6 col-lg-4">
+        <h5 class="choices-title"><a href="#">عقارات مشابههة</a></h5>
+        <div class="content-choice">
+          <p>صنعاء القديمة </p>
+          <p> السنينة  </p>
+          <p>الأصبحي </p>
+          <p>الستين الغربي </p>
+          <p>سعوان </p>
+          <p>الحصبة </p>
+          <p>التحرير </p>
+          <p>المطار </p>
+        </div>
+    </div>
+    <section class="footer  mt-5 pt-5 pb-5 text-white-50 text-center text-md-start">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="info mb-5">
+              <img src="imgs/logo1.png" alt="" style="width:80px;height:70px">
+              <p class="mb-5">
+                Pellentesque in ipsum id orci porta dapibus. Vivamus magna justo, lacinia eget consectetur sed,
+                convallis at tellus.
+              </p>
+              <div class="copyright">
+                Created By <span>JamalFarea</span>
+                <div>&copy; 2022- <span>RealState</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2">
+            <div class="links">
+              <h5 class="text-light">Links</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>Home</li>
+                <li>Our Services</li>
+                <li>Portfolio</li>
+                <li>Testimonials</li>
+                <li>Support</li>
+                <li>Terms and Condition</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2">
+            <div class="links">
+              <h5 class="text-light">About Us</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>Sign In</li>
+                <li>Register</li>
+                <li>About Us</li>
+                <li>Blog</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="contact">
+              <h5 class="text-light">Contact Us</h5>
+              <p class="lh-lg mt-3 mb-5">Get in touch with us via mail phone.We are waiting for your call or message</p>
+              <a class="btn rounded-pill main-btn w-100" href="#">graphberry@gmail.com</a>
+              <ul class="d-flex mt-5 list-unstyled gap-3">
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-facebook fa-lg facebook rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-twitter fa-lg twitter rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-linkedin fa-lg linkedin rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-youtube fa-lg youtube rounded-circle p-2"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+</main>
+    <div hx-get="{{ hx_url }}" hx-trigger="revealed">
+        <div class="htmx-indicator">Loading........</div>
+    </div>   
 {% endblock %}
+
+{% block script %}
+    <script src="{% static 'realstate/js/property.js' %}"></script>
+{% endblock script %}
     

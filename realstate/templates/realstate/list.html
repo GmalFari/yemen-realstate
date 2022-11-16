@@ -1,18 +1,179 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block style %}
+  <link rel="stylesheet" href="{% static 'realstate/css/listing.css' %}" />
+
+{% endblock style %}
 {% block content %}
+<div class="header d-flex" id="myHeader">
+    <!-- <div class=" d-none" id="logo">
+    <img class="logo"  src="imgs/logo1.png" alt="">
+    </div> -->
+      <form class="m-auto" action="">
+          <div class="input-group">
+            <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+             <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 ">
+              <div class="input-group-append">
+                <span >|</span>
+                <img src="{% static 'realstate/imgs/filter.png' %}" alt="">
+               
+              </div>
+            </div>
+      </form>
+  </div>
+  <section  class=" main-desc text-center my-5 ">
+    <div class="container">
+      <h2 class='' >أبحث الأن عن بيت الأحلام</h2>
+      <p class="text-black-50 text-center ">  نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد</p>
     
+    </div>
+  </section>
+  <div class="container">
+    <div id="widthControlled" class="gallery-row small ">
+      <?xml version="1.0" encoding="utf-8"?>
+    <div id="leftArrow" class="mt-4" >
+    <span  xlink:href="#scrollArrow" ><i style="font-size:37px" class=" fa-solid fa-chevron-right"></i></span>
+  </div>
+      
+      <div id="scroller" class="gallery-row-scroll mt-4 mx-auto">
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>الكل</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>شقق للبيع</span>
+        </a>
+        <a href="/realstate/search/?q=for_rent" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>شقق للإيجار</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>منازل</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>أراضي</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>عقارات صنعاء</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>عقارات عدن</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>محلات للبيع</span>
+        </a>
+        <a href="/realstate/search/?q=for_sale" class="btn  btn-labeled ">
+          <span class="btn-label me-2"><i class="fa fa-camera me-2"></i>محلات للإيجار</span>
+        </a>
+      </div>
+      <div id="rightArrow" class="mt-4" style="height: 100%">
+        <span  xlink:href="#scrollArrow" ><i style="font-size:37px" class=" fa-solid fa-chevron-left"></i></span>
+      </div>
+    </div>
+  </div>
+  <section class="list py-3">
+    <div class="container  py-5">
+      <div class="row justify-content-center">
+        {% for obj in list_rs %}
+        <div class="col-lg-4 col-md-6 mb-5 card-container ">
+          <div class="card pb-3 ">
+            <a href="{% url 'realstate:rs-detail' obj.id %}" class="img position-relative">
+              {% if obj.main_img %}
+              <img src=" {{ obj.main_img.url}} " alt="" class="img-fluid">
+              {%else %} 
+              <img src="{% static 'realstate/imgs/noimg.png' %}" alt="" class="img-fluid">
+              {%endif%}
+              <span class="favorite position-absolute">
+                <i  class="fa-solid fa-heart"></i>
+              </span>
+            </a>
+            <div class="property-main-info px-3">
+              <h3 class="mt-2 fw-bold">$3500+</h3>
+              
+              <p class="text-black">بيت بالمنطقة الغربية نوفر لك جميع ماتحتاجة عن العقارات في مكان واح نوفر لك جميع ماتحتاجة عن العقارات في مكان واحد
+              </p>
+
+              <li class="m-2 property-features text-black">
+                <span>
+                  <i style="color:#187875" class="fa-solid fa-bath"></i>
+                  bedrooms</span>
+                <span>|
+                  <i style="color:#187875" class="fa-solid fa-bed"></i>
+                  2 floor</span>
+                 <span>| 1500m
+                  <i style="color:#187875" class="fa-solid fa-map"></i>
+                </span>
+              </li>
+              <div class="puplish d-flex f-nowrap text-black-50 pb-2">
+                <div class="place fs-6 ps-2">
+                  
+                    <i class="fa-solid fa-location-dot"></i>
+                |صنعاء القديمة,باب السلام 
+                </div>
+                <div class="date fs-6">
+                  2/4/2022 
+                </div>
+              </div>
+                <div class="btn-group contact-icons">
+                  <button  type="button" class="btn main-btn2">
+                    واتساب
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </button>
+                  <button type="button" class="btn main-btn2 ">
+                    أتصل
+                    <i class="fa-solid fa-phone"></i>
+                  </button>
+                  <button type="button" class="btn main-btn2 ">
+                      الإيميل
+                    <i class="fa-regular fa-envelope"></i>
+                  </button>
+                </div>
+            </div>
+           </div>
+        </div>
+        {% endfor%}
+        
+      </div>
+    </div>
+    <i class="fas fa-angle-left change-background fa-2x"></i>
+    <i class="fas fa-angle-right change-background fa-2x"></i>
+    <div class="bullets-btn">
+      <ul class="bullets">
+        <li></li>
+        <li class="active"></li>
+        <li></li>
+      </ul>
+    </div>
+  </section>
     {% for obj in list_rs %}
-        <p><a href="{{obj.get_update_url}}">update</a></p>
-        <a href="{{obj.get_absolute_url}}"> {{obj.realstate_title}}</a>
-        <p>{{obj}}  </p>
+        <p><a href="{{obj.get_update_url}}">update</a>
+        <a href="{{obj.get_delete_url}}">Delete</a>
+        <p>{{obj}}</p>
         
         {% for ing in obj.realstateimage_set.all %}
             <img src="{{ing.image.url}}" alt="">
-            
         {% endfor %}
             
     {% endfor %}
-        
 {% endblock content %}
-    
+
+{% block script %}
+  <script>
+    window.onscroll = function() {myFunction()};
+    var header = document.getElementById("myHeader");
+    const inputgroup = document.querySelector('.header  form');
+    var sticky = header.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+        inputgroup.classList.add('float-right');
+        inputgroup.classList.remove('m-auto');
+      } else {
+        header.classList.remove("sticky");
+        inputgroup.classList.remove('float-right');
+        inputgroup.classList.add('m-auto');
+
+      }
+    }
+  </script>
+{% endblock script %}
+  

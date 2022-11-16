@@ -1,3 +1,5 @@
+import pathlib
+import uuid
 from django.urls import reverse
 from django.db.models import Q
 from django.db import models
@@ -25,9 +27,7 @@ class RealstateQuerySet(models.QuerySet):
     def search(self,query=None):
         if query is None or query=="":
             return self.none()
-        lookups =( Q(name__icontains=query) | 
-        Q(description__icontains=query) |
-         Q(directions__icontains=query)
+        lookups =( Q(realstate_title__icontains=query) 
         )
         return self.filter(lookups)
 
@@ -73,12 +73,18 @@ class Realstate(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     objects = RealstateManager() # for search 
+    
+    @property
+    def name(self):
+        return self.realstate_title
     def get_absolute_url(self):
         return reverse("realstate:rs-detail",kwargs={"id":self.id})
-    def get_hx_url(self):
-        return reverse("realstate:hx-rs-detail",kwargs={"id":self.id})
+    def get_delete_url(self):
+        return reverse("realstate:delete",kwargs={"id":self.id})
     def get_update_url(self):
         return reverse("realstate:rs-update",kwargs={"id":self.id})
+    def get_hx_url(self):
+        return reverse("realstate:hx-rs-detail",kwargs={"id":self.id})
     def get_child_images(self):
         return self.realstateimage_set.all()
     def __str__(self):
@@ -93,12 +99,23 @@ class Realstate(models.Model):
     class Meta:
         verbose_name = _("Realstate")
         verbose_name_plural = _("Realstates")
+
+
+
 class RealstateImage(models.Model):
     realstate= models.ForeignKey(Realstate,on_delete=models.CASCADE)
     image = models.ImageField(upload_to=img_file_name)
     
     def get_absolute_url(self):
-        return self.realstate.get_absolute_url()
+        return self.realstate.name
+    
+    def get_delete_url(self):
+        kwargs = {
+            "parent_id":self.realstate.id,
+            "id":self.id
+            }
+        return reverse("realstate:images-delete",kwargs=kwargs)
+        
     def get_hx_edit_url(self):
         kwargs = {
             "parent_id":self.realstate.id,

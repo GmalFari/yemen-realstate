@@ -4,22 +4,95 @@ from django.forms import modelformset_factory
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponse,Http404
-from django.shortcuts import HttpResponseRedirect, render
+from django.shortcuts import HttpResponseRedirect, render,get_object_or_404,redirect
 from .forms import ImageRealstateForm, RealstateForm
 from .models import Realstate, RealstateImage
 from .filter import Rsfilter
 
 # Create your views here.
 
+def search_view(request):
+    qs = Realstate.objects.all()
+    query = request.GET.get('q')
+    context = {}
+    if query == 'for_rent':
+        objs = qs.filter(offer_type='for_rent')
+        context['objects'] = objs
+    elif query =='for_sale':
+        objs = qs.filter(offer_type='for_sale')
+        context['objects'] = objs
+    return render(request,"realstate/search.html",context=context)
+def advanced_search_view(request):
+    objects = Realstate.objects.all()
+    context={}
+    myfilter = Rsfilter(request.GET,queryset=objects)
+    all_rs  = myfilter.qs
+    context = {
+        "objects":all_rs,
+        "myfilter":myfilter,
+        "rental_rs":Realstate.objects.filter(offer_type="for_rent")
+    }
+    return render(request,'realstate/advanced_search.html',context=context)
 
-@login_required
 def list_view(request):
-    list_rs = Realstate.objects.filter(company=request.user)
+    list_rs = Realstate.objects.all()[:10]
     context={
         "list_rs":list_rs,
     }
     return render(request,"realstate/list.html",context=context)
+
+@login_required
+def rs_delete_view(request,id=None):
+    try:
+        obj = Realstate.objects.get(id=id,company=request.user)
+    except:
+        obj = None
+    if obj is None:
+        if request.htmx:
+            return HttpResponse("Not found")
+        raise Http404
+    if request.method =="POST":
+        obj.delete()
+        success_url = reverse("realstate:homepage")
+        if request.htmx:
+            headers = {
+                'HX-Redirect':success_url
+            }
+            return HttpResponse("Success",headers=headers)
+        return redirect(success_url)
+    context = {
+        "object":obj,
+    }
+    return render(request,'realstate/delete.html',context=context)
+
  
+@login_required
+def rs_image_delete_view(request,parent_id =None,id=None):
+    try:
+        obj = RealstateImage.objects.get(
+            realstate__id=parent_id,
+            id=id,
+            realstate__company = request.user
+        )
+    except:
+        obj = None
+    if obj is None:
+        if request.htmx:
+            return HttpResponse("Not found")
+        raise Http404
+    if request.method =="POST":
+        obj.delete()
+        success_url = reverse("realstate:rs-detail",kwargs={"id":parent_id})
+        if request.htmx:            
+            return HttpResponse("<span style='color:#ccc'>Image deleted</span>")
+        return redirect(success_url)
+    context = {
+        "object":obj,
+    }
+    return render(request,'realstate/delete.html',context=context)
+
+
+
 @login_required
 def realstate_create_view(request):
     form = RealstateForm(request.POST or None,request.FILES or None)
@@ -96,6 +169,7 @@ def realstate_imgs_hx_detail_view(request,parent_id=None,id=None):
         return render(request,"realstate/partials/images-inline.html",context=context)
     return render(request,"realstate/partials/images-form.html",context=context)
 # global scope
+
 def homepage_view(request):
     objects = Realstate.objects.all()
     myfilter = Rsfilter(request.GET,queryset=objects)
@@ -108,8 +182,16 @@ def homepage_view(request):
     return render(request,"realstate/homepage.html",context=context)
 def realstate_detail_view(request,id=None):
     hx_url = reverse("realstate:hx-rs-detail",kwargs={"id":id})
+    try:
+        obj = Realstate.objects.get(id=id)
+    except:
+        obj = None
+    if obj is  None:
+        return HttpResponse("Not found")
+    
     context = {
         "hx_url":hx_url,
+        "object":obj
     }
     return render(request,"realstate/rs-detail.html",context=context)
 

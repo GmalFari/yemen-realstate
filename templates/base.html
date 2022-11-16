@@ -1,23 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>real state</title>
+    <title>yemen realstate</title>
+    {% block style %}
+    {% endblock style %}
+    <link rel="stylesheet" href="{% static 'realstate/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'realstate/css/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'realstate/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'realstate/css/all.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'realstate/css/bondi.css' %}" />
-    <link rel="stylesheet" href="{% static 'realstate/css/main.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
- 
-    <script src="https://unpkg.com/htmx.org@1.8.0" integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc" crossorigin="anonymous">
-      
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;800;900;1000&display=swap" rel="stylesheet"> 
+   
     <style>
+        
     .htmx-indicator {
         display:none;
     }
@@ -35,91 +35,36 @@
       height: 200px;
       }
     </style>
-
-    {% block style %}
-      
-    {% endblock style %}
+    <script src="https://unpkg.com/htmx.org@1.8.0" integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc" crossorigin="anonymous">
+    </script>
      </head>
 </head>
 <body >
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-          <a class="navbar-brand" href="{% url 'realstate:homepage' %}">
-            <img src="{% static 'realstate/imgs/realstate1.jpeg'%}" alt="" />
-            <span>الدلال العقاري</span>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#main"
-            aria-controls="main"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="main">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="{% url 'realstate:homepage' %}">الرئيسية</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="{% url 'realstate:rs-create' %}">إضافة عقار</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">أطلب عقار</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">أضف خدمتك</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">المدونة</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3" href="#">تواصل معنا</a>
-              </li>
-            </ul>
-            <div class="search ps-3 pe-3 d-none d-lg-block">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <a class="btn rounded-pill main-btn" href="#">Login</a>
-          </div>
-        </div>
-      </nav>
-      <div class="scrollmenu">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="#support">Support</a>
-        <a href="#blog">Blog</a>
-        <a href="#tools">Tools</a>  
-        <a href="#base">Base</a>
-        <a href="#custom">Custom</a>
-        <a href="#more">More</a>
-        <a href="#logo">Logo</a>
-        <a href="#friends">Friends</a>
-        <a href="#partners">Partners</a>
-        <a href="#people">People</a>
-        <a href="#work">Work</a>
-      </div>
-    
+   {% include 'parts/navbar.html' %}
     {% block content %}
-        
+
     {% endblock content %}
     
     {% block script %}
       
     {% endblock script %}
+    <script type="application/javascript" src="{% static 'realstate/js/horizonal.js' %}"></script>
+    <script type="application/javascript" src="{% static 'realstate/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'realstate/js/all.min.js' %}"></script>
+    
+    <script>
+        let toggle = document.querySelector('#navbar-toggler');
+        let nav = document.querySelector('.navbar');
+        toggle.addEventListener('click',function(){
+          if (nav.classList.contains('active')){
+            nav.classList.remove('active')
+          }else {
+            nav.classList.add('active')
+          }
+        })
+    
+    </script>
 
-    <script src="{% static 'realstate/js/bootstrap.bundle.min.js'%}"></script>
-    <script src="{% static 'realstate/js/all.min.js'%}"></script>
     <script>
       document.body.addEventListener('htmx:configRequest', (event) => {
           event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';

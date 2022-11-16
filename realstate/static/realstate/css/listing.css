@@ -1,0 +1,296 @@
+:root {
+  --main-color:#187875;
+  --dark-color: rgb(22, 50, 59);;
+  --green-color: #33d1cc;
+  --green-color1:#33ff69de;
+  --red-color: #ff3150;
+  --yellow-color: #ffc400;
+  --section-color: #fff;
+}
+ 
+.main-btn2{
+  padding:3px 5px;
+  background-color: var(--main-color) !important;
+  color:#fff !important;
+  border-radius:5px !important;
+  margin-right:10px;
+  color:white;
+  font-size: 0.8rem;
+}
+.main-btn2 svg {
+  color:var(--green-color1) !important;
+  font-weight: bold;
+}
+.main-btn1:hover   {
+  background-color: var(--main-color);
+  color: var(--section-color);
+}
+
+.header {
+  padding: 10px 16px;
+  color: #f1f1f1;
+  background-color: #fff;
+  z-index:999;
+  justify-content: space-around;
+  position:relative
+}
+
+.header form {
+  width:70%;
+
+}
+@media (max-width:767px) {
+.header form {
+  width:96%;
+
+}
+}
+/* from javascript */
+.header .float-right {
+float: right;
+}
+
+.header .input-group {
+  border:solid 2px var(--main-color);
+  padding:8px;
+  border-radius: 20px;
+}
+.header form input {
+  direction: rtl;
+  padding:5px 10px;
+  border-radius: 5px;
+;
+}
+.header form input:hover,
+.header form input:hover
+{
+background-color:    #fff; 
+
+}
+
+
+
+.header form span {
+  color: var(--main-color);
+  font-size: 24px;
+  margin-right: 10px;
+}
+.header form img {
+  margin-left:10px;
+  margin-right:10px;
+  height: 40px;
+  width: 40px;
+}
+.header form svg {
+  color:var(--main-color)
+}
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+transition:0.5s;
+}
+
+.sticky + .content {
+padding-top: 102px;
+}
+/* end header search */
+
+/* horizonal scroll */
+
+.gallery-row{
+  display:flex;
+  display:-webkit-flex;
+  flex-flow:row nowrap;
+}
+
+.gallery-row-scroll{
+  display:flex;
+  display:-webkit-flex;
+  overflow-x:scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+
+}
+
+.gallery-row-scroll > *{
+  margin: 0 0.1em;
+  -webkit-flex:0 0 auto;
+}
+
+.gallery-row-scroll .btn-labeled  {
+  background-color: #fff;
+  border-radius: 20px;
+  border:1px solid #888;
+
+}
+.gallery-row-scroll > :first-child{
+  margin-left: 0;
+}
+
+.gallery-row-scroll > :last-child{
+  margin-right: 10px;
+}  
+.gallery-row svg{
+  width:10%;
+  max-width:50px;
+  min-width:20px;
+  opacity:0.75;
+  cursor:pointer;
+}
+.gallery-row svg:hover{
+  background-color:#ddd;
+  opacity:1;
+  cursor:pointer;
+}
+
+ 
+ 
+ 
+ .gallery-row.small img{
+   height:150px;
+   width:auto;
+ }
+ 
+@media (min-width:1400px) {
+ #leftArrow,#rightArrow{
+   display: none;
+ }
+}
+/* end horizonal scroll */
+
+/* list section */
+.list {
+  background-color:#fff;
+  direction: rtl;
+  position:relative;
+
+}
+.list .card-container {
+  max-width:500px;
+}
+
+.list .btnc {
+  height: 40px;
+  width:90px;
+  text-align:center;
+  color:var(--dark-color);
+  outline:none;
+  border:none;
+  position: absolute;
+  border-radius: 20px;
+  right:1%;
+  top:1%;
+  padding:5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.list .card {
+  min-height: 700px;
+  max-height: 700px;
+}
+.list .img {
+  height: 300px !important;
+  
+}
+
+.list img {
+  width:100%;
+  max-height:300px;
+  min-height: 300px;
+  border-radius: 5px;
+}
+
+.list .favorite {
+  right:5%;
+  top:5%;
+  cursor: pointer;
+}
+.list .favorite svg {
+  color:white;
+  width:25px;
+  height: 30px;
+}
+.list .contact-icons  {
+  width:100%;
+  display: inline-grid;
+  grid-template-columns: 33.33% 33.33% 33.33%  ;
+}
+
+@media (max-width:500px) {
+
+.list .contact-icons {
+  grid-template-columns: 50% 50% ;
+
+}
+.list .contact-icons button:last-child{
+  display: none;
+}
+}
+
+.list .change-background {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-color);
+}
+@media (max-width: 767px) {
+  .list .change-background {
+    display: none;
+  }
+}
+.list .fa-angle-left {
+  left: 30px;
+}
+.list .fa-angle-right {
+  right: 30px;
+}
+
+.list .bullets-btn {
+  position: absolute;
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+}
+
+.list .bullets-btn .open-all {
+  margin: 10px 0;
+  background-color: var(--section-color);
+  color:rgba(0, 0, 0, 0.5);
+  padding:7px 15px;
+  border:solid 0.5px rgba(0,0,0,.5) ;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.list .bullets-btn .open-all:hover {
+  background-color: var(--green-color);
+  color:rgba(255,255,255);
+  transition:0.5s;
+
+
+}
+.list .bullets {
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.list .bullets li {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #888;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-bottom: 10px  ;
+  margin-top: 10px  ;
+}
+.list .bullets li.active {
+  background-color: var(--green-color);
+}
+
+/* end list cards */

@@ -1,0 +1,16 @@
+
+.main {
+    margin-top:3.8rem;
+    position:static
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+    .main {
+        margin-top:6.5rem;
+    }
+}
+@media (min-width:1201px) {
+    .main{
+        margin:5rem;
+    }
+}

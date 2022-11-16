@@ -1,20 +1,31 @@
+:root {
+    --main-color:#187875;
+    --dark-color: rgb(22, 50, 59);;
+    --green-color: #33d1cc;
+    --red-color: #ff3150;
+    --yellow-color: #ffc400;
+    --section-color: #fff;
+  }
+::selection {
+    background-color: var(--main-color);
+    color: white;
+  }
+  
+  input {
+    caret-color: var(--main-color) !important;
+    box-shadow: none !important;
+  }
 
-div.scrollmenu {
-    background-color:white ;
-    margin:5px auto;
-    overflow: auto;
-    white-space:nowrap;
-}
-
-div.scrollmenu a {
-    display: inline-block;
-    color:#222;
-    font-weight: bold;
-    background-color:#ddd;
-    text-align: center;
-    border-radius: 10px;
-    padding:10px 14px;
-    margin: 3px 5px;
-    text-decoration:none;
-    scroll-behavior: smooth;
-}
+  @font-face {
+    font-family: myFirstFont;
+    src: url(../Cairo/Cairo-VariableFont_wght.ttf);
+  }
+  
+  body {
+    font-family: 'Cairo', sans-serif !important;
+        line-height: 1.2;
+      background-color: var(--section-color);
+  }
+  ul,li {
+    list-style:none;
+  }

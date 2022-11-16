@@ -1,9 +1,19 @@
 <main>
     <img src="{{object.imageURL}}" alt="">
-    <h1><a href="{{object.get_update_url }}">{{object.realstate_title}}</a> </h1>
+    <h1><a href="{{object.get_update_url }}">{{object.realstate_title}}</h1>
+
     <h2>{{object.company}}</h2>
     <p>{{object.offer_type}}</p> 
-    {% for img in object.get_child_images  %}
+
+    {% for img in object.get_child_images %}
         <img src="{{img.image.url}}" alt="">
     {% endfor %}
+    <p><a href="{{object.get_delete_url}}"
+        hx-post="{{object.get_delete_url}}"
+        hx-trigger="click"
+        hx-confirm="Are you sure you want to delete this ?"
+        style="text-decoration: none;
+        background-color:red;
+        color:white;
+        padding:10px;" >Delete</a></p>
 </main>
